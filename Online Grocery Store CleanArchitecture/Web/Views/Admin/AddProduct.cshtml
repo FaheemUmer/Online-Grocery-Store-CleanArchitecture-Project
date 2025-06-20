@@ -1,0 +1,146 @@
+﻿@model Domain.Entities.Product
+
+@{
+    ViewBag.Title = "Add Product";
+}
+
+<partial name="_PVAdminIndex" model="Model" />
+
+<!-- Main Content -->
+<div class="container mt-5 main-content">
+    <!-- Heading -->
+    <h1 class="text-center mb-4">Add Product</h1>
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["SuccessMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            @TempData["ErrorMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    <h1 class="mb-4 text-center">Add Product</h1>
+
+    <!--Form-->
+
+  <form asp-action="AddProduct" method="post" enctype="multipart/form-data" class="row g-3 form-container">
+    @Html.AntiForgeryToken()
+
+    <div class="col-md-6 mx-auto">
+        <div class="mb-3">
+            <label asp-for="Name" class="form-label">Product Name</label>
+            <input asp-for="Name" class="form-control" placeholder="Enter product name" required />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+    </div>
+
+        <div class="col-md-6 mx-auto">
+            <div class="mb-3">
+                <label asp-for="CategoryId" class="form-label">Category</label>
+                <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.Categories">
+                    <option value="">-- Select Category --</option>
+                </select>
+                <span asp-validation-for="CategoryId" class="text-danger"></span>
+            </div>
+        </div>
+
+    <div class="col-md-6 mx-auto">
+        <div class="mb-3">
+            <label asp-for="Price" class="form-label">Price</label>
+            <input asp-for="Price" class="form-control" type="number" step="1" placeholder="Enter price" required />
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="col-md-6 mx-auto">
+        <div class="mb-3">
+            <label class="form-label">Product Image</label>
+            <input type="file" name="ProductImage" class="form-control" accept="image/*" required />
+        </div>
+    </div>
+
+    <div class="col-md-6 mx-auto">
+        <div class="mb-3">
+            <label asp-for="Quantity" class="form-label">Quantity</label>
+            <input asp-for="Quantity" class="form-control" type="number" min="1" placeholder="Enter quantity" required />
+            <span asp-validation-for="Quantity" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <button type="submit" class="btn btn-contrast w-100">Add Product</button>
+    </div>
+</form>
+</div>
+
+<style>
+    /* Offset content for navbar and sidebar */
+    .main-content {
+        margin-top: 80px; /* Adds space for the fixed navbar */
+        margin-left: 270px; /* Adds space for the fixed sidebar */
+        padding-right: 15px; /* Ensure no content overlaps on the right side */
+    }
+
+    /* Adjust container padding */
+    .container {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .form-label {
+        font-weight: 600;
+    }
+
+    .form-control {
+        border-radius: 8px;
+        padding: 12px;
+        border: 1px solid #ced4da;
+        font-size: 14px;
+    }
+
+    .form-control:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    }
+
+    /* Black and White Contrast Button */
+    .btn-contrast {
+        background-color: black;
+        color: white;
+        border: none;
+        padding: 15px;
+        font-size: 18px;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+
+    .btn-contrast:hover {
+        background-color: white;
+        color: black;
+        border: 1px solid black;
+        transform: translateY(-2px);
+    }
+
+    .alert {
+        margin-bottom: 20px;
+    }
+
+    .alert .btn-close {
+        padding: 0.5rem;
+    }
+
+    /* Form Container */
+    .form-container {
+        max-width: 500px; /* Limit form width */
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>

@@ -1,0 +1,84 @@
+﻿<!-- Top Contact Banner -->
+<div class="bg-dark py-2">
+    <div class="container d-flex justify-content-center align-items-center">
+        <!-- Cart Icon on Left -->
+        <div class="cart-icon me-3">
+            <i class="bi bi-cart-fill text-white" style="font-size: 3rem;"></i>
+        </div>
+        <!-- Main Name and Slogan Centered -->
+        <div class="text-center">
+            <p class="mb-0 fw-bold fs-2 text-white" style="font-family: 'Georgia', serif;">
+                <i>ONLINE GROCERY STORE</i>
+            </p>
+            <p class="mb-0 fs-6 text-white" style="font-family: 'Arial', sans-serif;">
+                <i>Your One-Stop Shop for Fresh and Quality Groceries!</i>
+            </p>
+        </div>
+    </div>
+</div>
+
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <div class="container">
+        <!-- Logo -->
+        <a class="navbar-brand" href="#">
+            <img src="/images/logo2.png" alt="Logo" width="150" height="100">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <!-- Navbar Links Section (Home, Categories, About, Contact Us) -->
+            <ul class="navbar-nav me-auto ms-3 bg-dark p-2 rounded-5 w-100" style="border-radius: 30px; justify-content: center;">
+                <li class="nav-item me-5"><a class="nav-link text-white fw-bold" href="/Home/Index">Home</a></li>
+                <li class="nav-item me-5 dropdown">
+                    <a class="nav-link dropdown-toggle text-white fw-bold" href="#" id="productsDropdown" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">Categories</a>
+                    <ul class="dropdown-menu bg-dark text-white" aria-labelledby="productsDropdown">
+                        <li><a class="dropdown-item text-white" href="/Product/FruitsAndVege">Fruits & Vegetables</a></li>
+                        <li><a class="dropdown-item text-white" href="/Product/DairyProd">Dairy Products</a></li>
+                        <li><a class="dropdown-item text-white" href="/Product/BreadAndBak">Bakery & Bread</a></li>
+                        <li><a class="dropdown-item text-white" href="/Product/SnacksAndConfec">Snacks & Confectionery</a></li>
+                        <li><a class="dropdown-item text-white" href="/Product/Beverages">Beverages</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item me-5"><a class="nav-link text-white fw-bold" href="/Home/About">About</a></li>
+                <li class="nav-item me-5"><a class="nav-link text-white fw-bold" href="/Home/Contact">Contact Us</a></li>
+            </ul>
+
+            <!-- Search Bar and Icons Section -->
+            <div class="d-flex align-items-center ms-3">
+                <div class="d-flex align-items-center me-3">
+                    <form method="get" action="/Home/Search" class="d-flex">
+                        <span class="me-2 d-flex align-items-center">
+                            <i class="bi bi-search text-dark"></i>
+                        </span>
+                        <input type="text" name="query" class="form-control form-control-sm bg-white text-dark border-0" placeholder="Search" aria-label="Search" style="height: 30px; width: 150px;">
+                    </form>
+                </div>
+                <!-- Icons -->
+                <a href="/Product/Cart" class="text-dark position-relative me-3">
+                    <i class="bi bi-cart"></i>
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">6</span>
+                </a>
+                <!-- Profile Button -->
+                <a href="/Home/Profile" class="text-dark me-3 d-flex align-items-center">
+                    <i class="bi bi-person"></i>
+                </a>
+                <!-- Logout Button -->
+                <a href="tel:+1234567890" class="text-dark me-3"><i class="bi bi-telephone"></i></a>
+                <a href="https://wa.me/1234567890" class="text-dark me-3"><i class="bi bi-whatsapp"></i></a>
+                <a href="/Account/Logout"
+                   class="btn btn-outline-dark btn-sm me-3"
+                   style="font-size: 14px; border-radius: 20px; padding: 5px 15px;">
+                    Logout
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+

@@ -1,0 +1,130 @@
+﻿@model List<Domain.Entities.CartItem>
+
+@{
+    ViewData["Title"] = "Checkout";
+}
+
+<style>
+    /* Custom Colors */
+    .text-custom-primary {
+        color: #000000; /* Black for primary text color */
+    }
+
+    .btn-custom-success {
+        background-color: #000000; /* Black for Place Order button */
+        color: white;
+        border: none;
+        font-weight: bold;
+    }
+
+        .btn-custom-success:hover {
+            background-color: #555555; /* Hover state for Place Order button */
+        }
+
+    /* Table Styles */
+    .custom-table th, .custom-table td {
+        text-align: center;
+        vertical-align: middle;
+        padding: 10px;
+    }
+
+    .thead-custom {
+        background-color: #000000; /* Black background for table header */
+        color: white; /* White text color */
+        font-weight: bold;
+    }
+
+    .table-bordered th, .table-bordered td {
+        border: 1px solid #ddd; /* Light grey border for table */
+    }
+
+    .table-hover tbody tr:hover {
+        background-color: #f1f1f1; /* Light grey for row hover */
+    }
+
+    /* Cart Summary */
+    .cart-summary {
+        background-color: #f8f9fa; /* Light background for cart summary */
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        margin-top: 20px;
+    }
+
+        .cart-summary h4 {
+            font-weight: bold;
+            color: #333; /* Dark grey for cart summary */
+        }
+
+        .cart-summary .btn {
+            font-size: 16px;
+            padding: 12px 25px;
+        }
+</style>
+
+
+<partial name="_PVHome" model="Model" />
+
+<div class="container my-5">
+    <h2 class="text-center mb-4 text-custom-primary">Checkout</h2>
+
+    @if (Model.Count == 0)
+    {
+        <p class="text-center text-muted">Your cart is empty. <a href="@Url.Action("Index", "Home")" class="btn btn-custom-success">Continue Shopping</a></p>
+    }
+    else
+    {
+        <form method="post" asp-action="CompleteCheckout" class="needs-validation" novalidate>
+            <div class="row">
+                <!-- Billing Information Section -->
+                <div class="col-md-12">
+                    <h4>Billing Information</h4>
+                    <div class="form-group mb-3">
+                        <label for="userName">Full Name</label>
+                        <input type="text" id="userName" name="userName" class="form-control" required />
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="userAddress">Address</label>
+                        <textarea id="userAddress" name="userAddress" class="form-control" required></textarea>
+                    </div>
+                </div>
+
+                <!-- Order Summary Section -->
+                <div class="col-md-12">
+                    <h4 class="mt-4">Order Summary</h4>
+                    <table class="table table-bordered custom-table table-hover">
+                        <thead class="thead-custom">
+                            <tr>
+                                <th>Product</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>....</td> <!-- Adjust this to display the product name -->
+                                    <td>@item.Quantity</td>
+                                    <td>Rs. 100</td> <!-- Adjust price logic as needed -->
+                                    <td>Rs. @(item.Quantity * 100)</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+
+                    <div class="text-end">
+                        <h5>Total Amount: Rs. @ViewData["TotalAmount"]</h5>
+                    </div>
+
+                    <div class="text-center mt-3">
+                        <button type="submit" class="btn btn-custom-success">Place Order</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    }
+</div>
+
+<partial name="_PVFooter" model="Model" />

@@ -1,0 +1,18 @@
+﻿@model Domain.Entities.Product
+
+@{
+    ViewData["Title"] = "Delete Product";
+}
+
+<div class="container my-5">
+    <h2 class="text-danger">Confirm Deletion</h2>
+    <p>Are you sure you want to delete the product <strong>@Model.Name</strong>?</p>
+    <p class="text-muted">This action cannot be undone.</p>
+
+    <form action="@Url.Action("DeleteProduct", "Admin")" method="post">
+        @Html.AntiForgeryToken()
+        <input type="hidden" name="id" value="@Model.Id" />
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a href="@Url.Action("Index", "Admin")" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>

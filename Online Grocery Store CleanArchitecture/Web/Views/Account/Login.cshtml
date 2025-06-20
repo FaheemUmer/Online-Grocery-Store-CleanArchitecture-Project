@@ -1,0 +1,116 @@
+﻿@{
+    // ViewBag.Title = "Login";
+}
+
+<!-- Include Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+
+<style>
+    body {
+        background-image: url('/images/bgpic1.jpg'); /* Grocery store-themed image */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: #f7f7f7; /* Fallback color */
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .welcome-banner {
+        text-align: center;
+        padding: 30px;
+        background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent white */
+        border-radius: 15px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        color: #333; /* Darker text color */
+        margin-bottom: 20px;
+    }
+
+        .welcome-banner h1 {
+            font-size: 2.5rem; /* Main text */
+            font-weight: bold; /* Bold text */
+            margin: 0;
+            color: #4a8c4a; /* Deep green for main text */
+        }
+
+        .welcome-banner p {
+            font-size: 1.5rem; /* Subline text */
+            font-weight: 400; /* Normal weight */
+            margin: 10px 0 0;
+            color: #2c6f2c; /* Darker green for subline */
+        }
+
+    .card {
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto; /* Center the login card */
+        text-align: center;
+        margin-top: 30px; /* Optional for spacing */
+    }
+
+    .form-label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+        text-align: left; /* Ensure labels are left-aligned */
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .btn-primary {
+        background-color: #5cb85c; /* Green button for a natural, fresh look */
+        border: none;
+        color: #fff;
+        font-size: 16px;
+        font-weight: bold;
+        padding: 10px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        width: 100%;
+    }
+
+        .btn-primary:hover {
+            background-color: #4cae4c; /* Slightly darker green */
+            transform: scale(1.05);
+        }
+</style>
+
+<div class="container">
+    <div class="welcome-banner">
+        <h1>Welcome to Online Grocery Store</h1>
+        <p>Your one-stop destination for fresh and quality products!</p>
+    </div>
+    <div class="card">
+        <h2 class="mb-4">Login</h2>
+        <form method="post" action="/Account/Login">
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" id="username" name="username" class="form-control" placeholder="Enter your username" required />
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" id="password" name="password" class="form-control" placeholder="Enter your password" required />
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+        @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+        {
+            <div class="alert alert-danger mt-3">@ViewBag.ErrorMessage</div>
+        }
+        <p class="mt-4">
+            Don't have an account?
+            <a href="/Account/SignUp" class="text-decoration-none">Sign up here</a>.
+        </p>
+    </div>
+</div>

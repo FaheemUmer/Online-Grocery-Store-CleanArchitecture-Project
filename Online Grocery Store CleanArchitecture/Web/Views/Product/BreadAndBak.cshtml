@@ -1,0 +1,36 @@
+﻿@model List<Domain.Entities.Product>
+
+@{
+    ViewData["Title"] = "Bread & Bakery";
+}
+
+<partial name="_PVHome" model="Model" />
+
+<div class="container my-5">
+    <h2 class="text-center mb-4">Bread & Bakery</h2>
+    <div class="row">
+        @foreach (var product in Model)
+        {
+            <div class="col-md-4 col-sm-6 mb-4">
+                <div class="card shadow-sm border-0">
+                    <img src="@product.ImageUrl" class="card-img-top" alt="@product.Name" style="height: 350px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">@product.Name</h5>
+                        <p class="card-text">Price: Rs. @product.Price</p>
+                        <!-- Quantity Input -->
+                        <label>Quantity:</label>
+                        <input type="number" name="quantity" class="form-control mb-2" style="width: 100px;" min="1" max="10" value="1" />
+
+                        <!-- Form for Add to Cart -->
+                        <form action="@Url.Action("AddToCart", "Product")" method="post">
+                            <input type="hidden" name="id" value="@product.Id" />
+                            <input type="hidden" name="quantity" value="1" id="quantity_@product.Id" />
+                            <button type="submit" class="btn btn-success mt-2">Add to Cart</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<partial name="_PVFooter" model="Model" />

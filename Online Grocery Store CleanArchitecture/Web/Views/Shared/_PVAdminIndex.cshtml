@@ -1,0 +1,127 @@
+﻿<style>
+    /* Navbar Styling */
+    .navbar {
+        background: linear-gradient(0deg, rgba(229, 236, 236, 1) 2%, rgba(3, 3, 3, 1) 100%);
+        color: white;
+        padding: 15px 30px;
+        display: flex;
+        justify-content: space-between; /* Space between brand and navbar items */
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .navbar .navbar-brand {
+        color: white;
+        text-decoration: none;
+        font-size: 28px;
+        font-weight: bold;
+        transition: all 0.3s ease;
+    }
+
+    .navbar .navbar-nav {
+        list-style: none;
+        display: flex; /* Ensures items are side by side */
+        margin: 0;
+        padding: 0;
+        align-items: center; /* Vertically center the items */
+    }
+
+    .navbar .navbar-nav li {
+        margin-right: 20px; /* Space between navbar items */
+    }
+
+    .navbar .navbar-nav a {
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-weight: 500;
+        transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .navbar .navbar-nav a:hover {
+        background-color: #495057;
+        color: #ffc107;
+        transform: translateY(-2px);
+    }
+
+    .navbar .logout-btn {
+        background: linear-gradient(to right, #dc3545, #b02a37);
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        font-size: 18px;
+        border-radius: 30px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 8px rgba(220, 53, 69, 0.4);
+    }
+
+    /* Sidebar Styling */
+    .sidebar {
+        width: 250px;
+        height: calc(100vh - 60px); /* Subtract navbar height */
+        position: fixed;
+        top: 60px; /* Below the navbar */
+        left: 0;
+        background: linear-gradient(0deg, rgba(229, 236, 236, 1) 2%, rgba(3, 3, 3, 1) 100%);
+        color: #fff;
+        padding: 20px;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        z-index: 900;
+    }
+
+    .sidebar h2 {
+        font-size: 20px;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .sidebar a {
+        display: block;
+        color: #ddd;
+        text-decoration: none;
+        margin: 10px 0;
+        font-size: 16px;
+        padding: 8px 10px;
+        border-radius: 5px;
+        transition: background 0.3s ease;
+    }
+
+    .sidebar a:hover {
+        background-color: #495057;
+        color: #fff;
+    }
+</style>
+
+
+<!-- Navbar -->
+<div class="navbar">
+    <a href="@Url.Action("Index", "Home")" class="navbar-brand">Admin Panel</a>
+    <ul class="navbar-nav">
+        <li><a href="@Url.Action("Profile", "Admin")">Profile</a></li>
+        <li><a href="@Url.Action("Settings", "Admin")">Settings</a></li>
+        <li><a href="@Url.Action("Reports", "Admin")">Reports</a></li>
+    </ul>
+    <button class="logout-btn" onclick="location.href='@Url.Action("Logout", "Account")'">Logout</button>
+</div>
+
+<!-- Sidebar -->
+<div class="sidebar">
+    <h2>Admin Menu</h2>
+    <a href="@Url.Action("Index")">Home</a>
+    <a href="@Url.Action("Dashboard")">Dashboard</a>
+    <a href="@Url.Action("ManageProduct")">Manage Products</a>
+    <a href="@Url.Action("AddProduct")">Add Product</a>
+    <a href="@Url.Action("Orders")">Orders</a>
+ 
+</div>

@@ -1,0 +1,45 @@
+﻿@{
+    ViewData["Title"] = "Order Success";
+}
+
+<style>
+    /* Custom Colors for Order Success */
+    .success-message-container {
+        background-color: #f8f9fa; /* Light background for consistency with checkout */
+        color: #343a40; /* Dark text for readability */
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        font-size: 20px;
+    }
+
+    .thank-you-message {
+        font-weight: bold;
+        font-size: 24px;
+    }
+
+    .btn-custom {
+        background-color: #333333; /* Black button for consistency */
+        color: white;
+        border: none;
+        padding: 12px 30px;
+        font-size: 16px;
+        text-decoration: none;
+        margin-top: 20px;
+        border-radius: 5px;
+    }
+
+        .btn-custom:hover {
+            background-color: #555555; /* Darker hover state for button */
+        }
+
+</style>
+
+<div class="container my-5">
+    <div class="success-message-container">
+        <p class="thank-you-message">Thank you for your order!</p>
+        <p>Your order has been placed successfully. We appreciate your business and look forward to serving you again!</p>
+        <a href="@Url.Action("Index", "Home")" class="btn btn-custom">Return to Home</a>
+    </div>
+</div>

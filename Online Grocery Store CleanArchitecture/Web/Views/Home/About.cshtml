@@ -1,0 +1,154 @@
+﻿@{
+    ViewData["Title"] = "About Us";
+}
+
+<style>
+    /* General Styling */
+    body {
+        font-family: 'Arial', sans-serif; /* Simple fallback font for general use */
+        background-color: #f9fafb; /* Light neutral background for the body */
+        margin: 0;
+        padding: 0;
+    }
+
+    .about-container {
+        max-width: 900px;
+        margin: 30px auto;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Soft shadow */
+        overflow: hidden;
+    }
+
+    /* Intro Section */
+    .intro-section {
+        background-color: black; /* Green-teal */
+        padding: 30px;
+        color: white;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .intro-section h1 {
+        font-size: 3rem;
+        margin-bottom: 10px;
+    }
+
+    .intro-section p {
+        font-size: 1.3rem;
+        line-height: 1.8;
+    }
+
+    .brand-name {
+        color: #16a085; /* Darker teal for emphasis */
+        font-weight: bold;
+    }
+
+    /* Vision Section */
+    .vision-section {
+        background-color: white; /* Orange-yellow */
+        padding: 30px;
+        color: black;
+        font-family: 'Raleway', sans-serif;
+    }
+
+    .vision-section h2 {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+    }
+
+    .vision-section p {
+        font-size: 1.2rem;
+        line-height: 1.6;
+    }
+
+    /* Mission Section */
+    .mission-section {
+        background-color: black; /* Blue */
+        padding: 30px;
+        color: white;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .mission-section h2 {
+        font-size: 2.3rem;
+        margin-bottom: 15px;
+    }
+
+    .mission-section ul {
+        list-style-type: square;
+        padding-left: 20px;
+    }
+
+    .mission-section li {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+
+    /* Call-to-Action Section */
+    .cta-section {
+        background-color: white; /* Red */
+        padding: 30px;
+        text-align: center;
+        color: black;
+        font-family: 'Lato', sans-serif;
+    }
+
+    .cta-section h2 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+    }
+
+    .cta-section p {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+    }
+
+    .cta-button {
+        background-color: white; /* Contrast with red background */
+        color: #e74c3c;
+        font-size: 1.2rem;
+        font-weight: bold;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .cta-button:hover {
+        background-color: #c0392b; /* Darker red */
+        color: white;
+    }
+</style>
+
+<partial name="_PVHome" model="Model" />
+
+<div class="about-container">
+    <section class="intro-section">
+        <h1>About Us</h1>
+        <p>Welcome to <span class="brand-name">Online Grocery Store</span>, where convenience meets quality. We are committed to delivering the freshest groceries to your doorstep, saving you time and effort.</p>
+    </section>
+
+    <section class="vision-section">
+        <h2>Our Vision</h2>
+        <p>We envision a world where every household can access fresh and high-quality groceries without stepping out of their homes. Our goal is to redefine grocery shopping with our fast and reliable service.</p>
+    </section>
+
+    <section class="mission-section">
+        <h2>Our Mission</h2>
+        <ul>
+            <li>Provide top-quality products at affordable prices.</li>
+            <li>Ensure timely and accurate delivery of all orders.</li>
+            <li>Promote sustainability by offering eco-friendly packaging options.</li>
+            <li>Continuously improve our services based on customer feedback.</li>
+        </ul>
+    </section>
+
+    <section class="cta-section">
+        <h2>Why Choose Us?</h2>
+        <p>We combine technology with exceptional customer service to create a seamless shopping experience for you. Let us be your trusted partner in grocery shopping!</p>
+        @* <button class="cta-button" >Start Shopping Now</button> *@
+        <a href="/Home/Index" class="cta-button">Start Shopping Now</a>
+    </section>
+</div>
+

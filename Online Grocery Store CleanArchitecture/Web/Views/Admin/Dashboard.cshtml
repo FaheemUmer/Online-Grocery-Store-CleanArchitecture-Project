@@ -1,0 +1,115 @@
+﻿@model Domain.Entities.DashboardViewModel
+
+@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+
+<style>
+    /* General styling for the Dashboard */
+    .dashboard-container {
+        background: rgb(3,3,0);
+        background: linear-gradient(90deg, rgba(3,3,0,1) 0%, rgba(229,236,232,1) 53%, rgba(57,63,64,1) 100%);
+        padding: 30px 20px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        margin-left: 270px; /* Adjust for sidebar */
+        margin-top: 80px; /* Adjust for navbar */
+        max-width: calc(100% - 300px);
+    }
+
+    .dashboard-title {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 30px;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .card {
+        border: none;
+        border-radius: 20px;
+        background: rgb(229,236,236);
+        background: linear-gradient(0deg, rgba(229,236,236,1) 2%, rgba(3,3,3,1) 100%);
+        color: #fff;
+        text-align: center;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+    .card-body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 30px 15px;
+    }
+
+    .icon-container {
+        font-size: 3rem;
+        margin-bottom: 15px;
+        opacity: 0.9;
+    }
+
+    .card-title {
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+    }
+
+    .card-text {
+        font-size: 2.5rem;
+        font-weight: bold;
+    }
+</style>
+
+<partial name="_PVAdminIndex" model="Model" />
+<br />
+<br />
+
+<div class="container dashboard-container">
+    <h1 class="dashboard-title text-center">Admin Dashboard</h1>
+    <div class="row g-3">
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <div class="icon-container">
+                        <i class="fas fa-boxes"></i>
+                    </div>
+                    <h5 class="card-title">Total Products</h5>
+                    <p class="card-text">@Model.TotalProducts</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <div class="icon-container">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h5 class="card-title">Total Orders</h5>
+                    <p class="card-text">@Model.TotalOrders</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <div class="icon-container">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h5 class="card-title">Total Users</h5>
+                    <p class="card-text">@Model.TotalUsers</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
